@@ -12,10 +12,10 @@ function App() {
   return (
    <BrowserRouter>
       <Navbar />
-      <UserContext.Provider value={{users:[{name:'abel',email:'abel@mit.edu',password:'secret',balance:100}]}}>
-        <div className="container" style={{padding: "20px"}}></div>
+      <UserContext.Provider value={{users:[{name:'Max',email:'max@mit.edu',password:'secret',balance:1000}]}}>
+
         <Routes>
-          <Route path='/home' element={<Home />} />
+          <Route path='/' element={<Home />} />
           <Route path='/create-account' element={<CreateAccount />} />
           <Route path='/deposit' element={<Deposit />} />
           <Route path='/withdraw' element={<Withdraw />} />

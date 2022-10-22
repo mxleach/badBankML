@@ -12,16 +12,7 @@ function CreateAccount(){
     const ctx = useContext(UserContext);  
   
     
-    function validate(field, label){
-        if (!field) {
-          setStatus('Error: ' + label);
-          setTimeout(() => setStatus(''),3000);
-          return false;
-        } 
-        return true;
-    }
-  
-    function handleCreate(){
+    function createForm(){
       console.log(name,email,password);
       if (!validate(name,     'Name required'))     return;
       if (!validate(email,    'Email required'))    return;
@@ -35,6 +26,17 @@ function CreateAccount(){
       setShow(false);
     }    
   
+
+
+    function validate(field, label){
+        if (!field) {
+          setStatus('Error: ' + label);
+          setTimeout(() => setStatus(''),3000);
+          return false;
+        } 
+        return true;
+    }
+  
     function clearForm(){
       setName('');
       setEmail('');
@@ -44,7 +46,7 @@ function CreateAccount(){
 
   return (
     
-    <div id="createActCard">
+    <div id="actCard">
     <div  id="card2">
       <Card
         backgroundColor = "primary"
@@ -53,19 +55,20 @@ function CreateAccount(){
         body={show ? (  
                 <>
                 Name<br/>
-                <input type="input" className="form-control" id="name" placeholder="Enter full name" value={name} onChange={e => setName(e.currentTarget.value)} /><br/>
+                <input type="input" className="form-control" id="name" placeholder="Enter Full Name" value={name} onChange={e => setName(e.currentTarget.value)} /><br/>
                 Email address<br/>
-                <input type="input" className="form-control" id="email" placeholder="Enter email" value={email} onChange={e => setEmail(e.currentTarget.value)}/><br/>
+                <input type="input" className="form-control" id="email" placeholder="Enter Email" value={email} onChange={e => setEmail(e.currentTarget.value)}/><br/>
                 Password<br/>
-                <input type="password" className="form-control" id="password" placeholder="Enter password" value={password} onChange={e => setPassword(e.currentTarget.value)}/><br/>
-                <button type="submit" className="btn btn-light" disabled={name === '' || email==='' || password==='' ? true : false} onClick={handleCreate}>Create Account</button>
+                <input type="password" className="form-control" id="password" placeholder="Enter Password" value={password} onChange={e => setPassword(e.currentTarget.value)}/><br/>
+                <button type="submit" className="btn btn-light" disabled={name === '' || email==='' || password==='' ? true : false} onClick={createForm}>Create Account</button>
                 </>
               ):(
               <>
-                  <h5>Success!</h5>
-                  <button type="submit" className="btn btn-light" onClick={clearForm}>Add another account</button>
+                  <h3>Account added.</h3>
+                  <h5>Thank you for choosing Bad Bank!</h5>
+                  <button type="submit" className="btn btn-light" onClick={clearForm}>Add account</button>
                   <hr/>
-                  <Link to="/deposit"><button type="submit" className="btn btn-light" id="toDepositBtn">Make a deposit!</button></Link>
+                  <Link to="/deposit"><button type="submit" className="btn btn-light" id="depositBtn">Make Deposit</button></Link>
                   </> 
               )}
       />

@@ -3,9 +3,9 @@ import {Card, UserContext} from './context';
 import './app.css';
 
 function Withdraw(){
-    const [show, setShow] = useState(true);
     const [withdraw, setWithdraw] = useState('');
     const [status, setStatus] = useState('');
+    const [show, setShow] = useState(true);
   
     const ctx = useContext(UserContext);
    
@@ -18,25 +18,25 @@ function Withdraw(){
         setTimeout(() => setStatus(''),3000);
         return false;
       }     if (withdraw < 0) {
-        setStatus('Error: Negative number');
+        setStatus('Error: Negative Number');
         setTimeout(() => setStatus(''),3000);
         return false;
       } if (withdraw > balance) {
-        setStatus('Error: Insufficient funds');
+        setStatus('Error: Insufficient Funds');
         setTimeout(() => setStatus(''),3000);
         return false;
       }
       return true;
   }
   
-    function handleWithdraw () {
-      if (!validate(withdraw, 'Number required'))     
+    function makeWithdrawal () {
+      if (!validate(withdraw, 'Number Required'))     
       return;
 
-      let newBalance = balance - parseInt(withdraw);
+      let newAmount = balance - parseInt(withdraw);
       let deductedFunds = `${ctx.users[lastUser].name} withdrew: ${withdraw}`
       setShow(false)
-      return ( ctx.users[lastUser].balance = newBalance, ctx.submissions.push(deductedFunds)
+      return ( ctx.users[lastUser].balance = newAmount, ctx.submissions.push(deductedFunds)
       )
     }
   
@@ -59,11 +59,11 @@ function Withdraw(){
             <h6>Account Balance = $ {ctx.users[lastUser].balance}</h6><br/>
             <input type="input" className="form-control" id="withdraw" placeholder="Enter amount" value={withdraw} onChange={e => setWithdraw(e.currentTarget.value)} /> <br/>
             
-            <button type="submit" className="btn btn-light" disabled={withdraw === 0 || withdraw === ''? true : false} onClick={handleWithdraw}>Withdraw Amount</button> <br/>
+            <button type="submit" className="btn btn-light" disabled={withdraw === 0 || withdraw === ''? true : false} onClick={makeWithdrawal}>Withdraw</button> <br/>
             </> ) : (<> 
             <h6>New Balance = $ {balance}</h6> <br/>
             <p>Transaction successful!</p>
-            <button type="submit" className="btn btn-light"  onClick={clearForm}>Make another withdraw</button> <br/>
+            <button type="submit" className="btn btn-light"  onClick={clearForm}>Withdraw More...</button> <br/>
             </>
             )
           }

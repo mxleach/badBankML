@@ -15,14 +15,14 @@ function AllData(){
   );
   return (
     <>
-    <h5>All Data in Store</h5>
+    <h3 className="dataHeader">All Data in Store</h3>
     <table className="table table-bordered table-striped">
         <thead>
           <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">Password</th>
-            <th scope="col">Balance</th>
+            <th scope="col" className="tableCell">Name</th>
+            <th scope="col" className="tableCell">Email</th>
+            <th scope="col" className="tableCell">Password</th>
+            <th scope="col" className="tableCell">Balance</th>
           </tr>
         </thead>
         <tbody>

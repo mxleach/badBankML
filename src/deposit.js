@@ -25,14 +25,14 @@ function Deposit(){
       return true;
   }
   
-    function handleDeposit () {
-      if (!validate(deposit, 'Number required'))     
+    function makeDeposit () {
+      if (!validate(deposit, 'Number Required'))     
       return;
 
-      let newBalance = balance + parseInt(deposit);
-      let addedFunds = `${ctx.users[lastUser].name} deposited: ${deposit}`
+      let newAmount = balance + parseInt(deposit);
+      let newMoney = `${ctx.users[lastUser].name} deposited: ${deposit}`
       setShow(false)
-      return ( ctx.users[lastUser].balance = newBalance, ctx.submissions.push(addedFunds)
+      return ( ctx.users[lastUser].balance = newAmount, ctx.submissions.push(newMoney)
       )
     }
   
@@ -53,13 +53,13 @@ function Deposit(){
             <>
             <h5>Hello {ctx.users[lastUser].name},</h5>
             <h6>Account Balance = $ {ctx.users[lastUser].balance}</h6><br/>
-            <input type="input" className="form-control" id="deposit" placeholder="Enter amount" value={deposit} onChange={e => setDeposit(e.currentTarget.value)} /> <br/>
+            <input type="input" className="form-control" id="deposit" placeholder="Enter Amount" value={deposit} onChange={e => setDeposit(e.currentTarget.value)} /> <br/>
             
-            <button type="submit" className="btn btn-light" disabled={deposit === 0 || deposit === ''? true : false} onClick={handleDeposit}>Deposit Amount</button> <br/>
+            <button type="submit" className="btn btn-light" disabled={deposit === 0 || deposit === ''? true : false} onClick={makeDeposit}>Deposit Amount</button> <br/>
             </> ) : (<> 
             <h6>New Balance = $ {balance}</h6> <br/>
             <p>Transaction successful!</p>
-            <button type="submit" className="btn btn-light"  onClick={clearForm}>Make another deposit</button> <br/>
+            <button type="submit" className="btn btn-light"  onClick={clearForm}>Deposit More...</button> <br/>
             </>
             )
           }
