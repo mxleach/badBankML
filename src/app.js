@@ -10,7 +10,7 @@ import './app.css';
 
 function App() {
   return (
-   <BrowserRouter>
+   <BrowserRouter basename="/bad-bank">
       <Navbar />
       <UserContext.Provider value={{users:[{name:'Max',email:'max@mit.edu',password:'secret',balance:1000}]}}>
 
