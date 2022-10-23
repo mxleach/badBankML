@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import { UserContext } from './context';
 import Navbar from './navbar';
 import Home from './home';
@@ -10,7 +10,7 @@ import './app.css';
 
 function App() {
   return (
-   <BrowserRouter basename="/bad-bank">
+   <HashRouter basename="/bad-bank">
       <Navbar />
       <UserContext.Provider value={{users:[{name:'Max',email:'max@mit.edu',password:'secret',balance:1000}]}}>
 
@@ -22,7 +22,7 @@ function App() {
           <Route path='/all-data' element={<AllData />} />
         </Routes>
       </UserContext.Provider>
-   </BrowserRouter>
+   </HashRouter>
   );
 }
 
