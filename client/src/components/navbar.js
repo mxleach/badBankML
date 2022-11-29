@@ -47,6 +47,11 @@ function Navbar() {
               <NavLink className="nav-link" to="/recordlist">
                 Record List
               </NavLink>
+              </li>
+              <li className="navbar-item">
+              <NavLink className="nav-link" to="/news">
+                Finance News
+              </NavLink>
             </li>
           </ul>
         </div>
