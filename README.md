@@ -1,19 +1,28 @@
-# badbank-fullstack
 
-## Start App
+badBankML - A FullStack Banking Application
 
-```bash
-npm run start
-```
+This project leverages the MERN stack and is my submission for MIT xPRO's Full Stack Banking Application.
 
-## Start Client
 
-```bash
-npm run start:client
-```
 
-## Start Server
+## Installation
+
+Install badBankML with npm
 
 ```bash
-npm run start:server
+  npm install
 ```
+    cd client 
+    npm install
+    npm run start
+
+
+
+    cd server 
+    npm install
+    node server.js
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
