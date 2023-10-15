@@ -26,3 +26,6 @@ Install badBankML with npm
 
 [MIT](https://choosealicense.com/licenses/mit/)
 
+=======
+# bad-bank
+MIT Bad Bank Project
